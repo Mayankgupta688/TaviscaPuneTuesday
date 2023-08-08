@@ -1,0 +1,11 @@
+<filter-stock (notifyFilterChange)="filterList($event)"></filter-stock>
+
+<div *ngFor="let stockDetail of filteredStockList; let i=index" id="{{'id_' + i}}" [class]=" calculatePriceValue(stockDetail)">
+    <stock-detail [stock]="stockDetail" (triggerDelete)="deleteStockFromList($event)">
+    </stock-detail>
+    <hr />
+</div>
+
+<div>
+    <input type="button" (click)="addStockToList()" value="Click to Add" />
+</div>

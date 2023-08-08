@@ -1,0 +1,7 @@
+<ng-container>
+    <h1> The Stock Name is: {{stock.stockName}}</h1>
+    <h2> The Stock Value is: {{stock.stockValue}}</h2>
+    <h3> The Stock Status is: {{stock.stockStatus}}</h3>
+    <input type="button" value="Delete" (click)="deleteEmployee(stock.stockName)" />
+    <input type="button" value="Trigger" (click)="triggerUpdate()" />
+</ng-container>

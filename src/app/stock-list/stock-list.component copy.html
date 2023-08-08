@@ -1,0 +1,21 @@
+<div style="color: red" *ngFor="let stock of stockArray">
+    <ng-container *ngIf="stock.stockStatus == 'OverPriced'">
+        <h1> The Stock Name is: {{stock.stockName}}</h1>
+        <h2> The Stock Value is: {{stock.stockValue}}</h2>
+        <h3> The Stock Status is: {{stock.stockStatus}}</h3>
+    </ng-container>
+    <hr />
+</div>
+
+<div style="color: green" *ngFor="let stock of stockArray">
+    <ng-container *ngIf="stock.stockStatus == 'UnderPriced'">
+        <h1> The Stock Name is: {{stock.stockName}}</h1>
+        <h2> The Stock Value is: {{stock.stockValue}}</h2>
+        <h3> The Stock Status is: {{stock.stockStatus}}</h3>
+        <hr />
+    </ng-container>
+</div>
+
+<div>
+    <input type="button" (click)="addStockToList()" value="Click to Add" />
+</div>

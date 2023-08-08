@@ -1,0 +1,11 @@
+.underValuedStock {
+    color: green;
+}
+
+.overValuedStock {
+    color: red;
+}
+
+.orangeValuedStock {
+    color: grey;
+}
