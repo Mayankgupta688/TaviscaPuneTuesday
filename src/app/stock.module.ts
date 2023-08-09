@@ -6,9 +6,10 @@ import StockListComponent from "./stock-list/stock-list.component";
 import { StockDetailsComponent } from './stock-details/stock-details.component';
 import { FilterStockComponent } from './filter-stock/filter-stock.component';
 import { FormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-    imports: [BrowserModule, FormsModule],
+    imports: [BrowserModule, FormsModule, HttpClientModule],
     declarations: [StockComponent, NelsoStockComponent, StockListComponent, StockDetailsComponent, FilterStockComponent],
     bootstrap: [StockListComponent]
 })

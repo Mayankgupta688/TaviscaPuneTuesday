@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { retry } from "rxjs";
 
 @Component({
     templateUrl: "stock-list.component.html",
@@ -10,17 +11,17 @@ export default class StockListComponent {
         stockName: "SBI",
         stockValue: 300,
         stockStatus: "UnderPriced",
-        stockUrl: ""
+        stockUrl: "https://priceapi.moneycontrol.com/pricefeed/nse/equitycash/SBI"
     }, {
         stockName: "NALCO",
         stockValue: 310,
         stockStatus: "OverPriced",
-        stockUrl: ""
+        stockUrl: "https://priceapi.moneycontrol.com/pricefeed/bse/equitycash/NAC"
     }, {
         stockName: "ADANI",
         stockValue: 300,
         stockStatus: "UnderPriced",
-        stockUrl: ""
+        stockUrl: "https://priceapi.moneycontrol.com/pricefeed/bse/equitycash/NAC"
     }];
 
     filteredStockList = this.stockArray;
@@ -29,6 +30,17 @@ export default class StockListComponent {
         this.filteredStockList = this.stockArray.filter(function (stock) {
             return stock.stockName.indexOf(stockName) > -1
         })
+    }
+
+    updatePrice(updatedStockData: any) {
+        var updateIndex = -1;
+        debugger;
+        this.stockArray.forEach((stock, index) => {
+            if (stock.stockName == updatedStockData.stockName) {
+                updateIndex = index
+            }
+        })
+        this.stockArray[updateIndex].stockValue = updatedStockData.updatedPrice;
     }
 
     deleteStockFromList(stockName: string) {
@@ -56,7 +68,7 @@ export default class StockListComponent {
             stockName: "RELIANCE",
             stockValue: 300,
             stockStatus: "OverPriced",
-            stockUrl: ""
+            stockUrl: "https://priceapi.moneycontrol.com/pricefeed/nse/equitycash/SBI"
         });
     }
 }
