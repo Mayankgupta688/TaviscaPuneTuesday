@@ -1,0 +1,13 @@
+<h1 applyColor>This is List Component</h1>
+<hr />
+
+<div *delayRendering>
+    <h1>This is delayed Output</h1>
+</div>
+
+<ng-container *ngFor="let emp of employeeList">
+    <h1 applyColor>Emp Name is {{emp.name}}</h1>
+    <h2 applyColor>Emp Name is {{emp.age}}</h2>
+    <input type="button" value="Details" (click)="redirectPage(emp.name, emp.age)" />
+    <hr />
+</ng-container>

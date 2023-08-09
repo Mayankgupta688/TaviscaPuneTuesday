@@ -11,6 +11,7 @@ export class SiblingOneComponent implements OnInit {
   dataFromTwo: string = "";
   constructor(private _dataService: StockService) {
     debugger;
+
     this._dataService.emitAlert();
 
     this._dataService.eventFromOne.subscribe((data) => {
