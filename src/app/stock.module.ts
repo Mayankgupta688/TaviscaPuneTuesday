@@ -7,11 +7,13 @@ import { StockDetailsComponent } from './stock-details/stock-details.component';
 import { FilterStockComponent } from './filter-stock/filter-stock.component';
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { SiblingOneComponent } from './sibling-one/sibling-one.component';
+import { SiblingTwoComponent } from './sibling-two/sibling-two.component';
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpClientModule],
-    declarations: [StockComponent, NelsoStockComponent, StockListComponent, StockDetailsComponent, FilterStockComponent],
-    bootstrap: [StockListComponent]
+    declarations: [StockComponent, NelsoStockComponent, StockListComponent, StockDetailsComponent, FilterStockComponent, SiblingOneComponent, SiblingTwoComponent],
+    bootstrap: [SiblingOneComponent, SiblingTwoComponent]
 })
 export default class StockModule { }
 

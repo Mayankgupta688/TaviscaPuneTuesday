@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { retry } from "rxjs";
+import StockService from "../services/stock.service";
 
 @Component({
     templateUrl: "stock-list.component.html",
@@ -7,27 +8,18 @@ import { retry } from "rxjs";
     styleUrls: ["stock-list.component.css"]
 })
 export default class StockListComponent {
-    stockArray = [{
-        stockName: "SBI",
-        stockValue: 300,
-        stockStatus: "UnderPriced",
-        stockUrl: "https://priceapi.moneycontrol.com/pricefeed/nse/equitycash/SBI"
-    }, {
-        stockName: "NALCO",
-        stockValue: 310,
-        stockStatus: "OverPriced",
-        stockUrl: "https://priceapi.moneycontrol.com/pricefeed/bse/equitycash/NAC"
-    }, {
-        stockName: "ADANI",
-        stockValue: 300,
-        stockStatus: "UnderPriced",
-        stockUrl: "https://priceapi.moneycontrol.com/pricefeed/bse/equitycash/NAC"
-    }];
+    stockArray: any = [];
+    filteredStockList: any = [];
+    constructor(private _dataService: StockService) {
+        this.stockArray = [];
+        this.stockArray = this._dataService.stockList;
+        this.filteredStockList = this.stockArray;
+    }
 
-    filteredStockList = this.stockArray;
+
 
     filterList(stockName: string) {
-        this.filteredStockList = this.stockArray.filter(function (stock) {
+        this.filteredStockList = this.stockArray.filter(function (stock: any) {
             return stock.stockName.indexOf(stockName) > -1
         })
     }
@@ -35,7 +27,7 @@ export default class StockListComponent {
     updatePrice(updatedStockData: any) {
         var updateIndex = -1;
         debugger;
-        this.stockArray.forEach((stock, index) => {
+        this.stockArray.forEach((stock: any, index: any) => {
             if (stock.stockName == updatedStockData.stockName) {
                 updateIndex = index
             }
@@ -44,7 +36,7 @@ export default class StockListComponent {
     }
 
     deleteStockFromList(stockName: string) {
-        this.stockArray = this.stockArray.filter(function (stock) {
+        this.stockArray = this.stockArray.filter(function (stock: any) {
             return !(stock.stockName == stockName)
         })
     }
